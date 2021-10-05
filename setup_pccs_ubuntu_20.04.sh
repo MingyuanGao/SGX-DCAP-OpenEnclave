@@ -3,16 +3,20 @@
 # https://software.intel.com/content/www/us/en/develop/articles/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html
 # https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Contributors/NonAccMachineSGXLinuxGettingStarted.md
 
+
+sudo apt -y update
+sudo apt install -y curl wget
+
+
 curl -o setup.sh -sL https://deb.nodesource.com/setup_14.x
 chmod +x setup.sh
 sudo ./setup.sh
-
-sudo apt -y update
 sudo apt -y install nodejs
 rm setup.sh
 
+
 echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu focal main' | sudo tee /etc/apt/sources.list.d/intel-sgx.list
-wget -O - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | apt-key add -
+wget -O - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | sudo apt-key add -
 sudo apt update -y
 sudo apt install -y sqlite3 python build-essential
 sudo apt install -y sgx-dcap-pccs
