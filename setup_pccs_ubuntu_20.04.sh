@@ -5,7 +5,7 @@
 
 
 sudo apt -y update
-sudo apt install -y curl wget
+sudo apt install -y curl wget cracklib-runtime
 
 
 curl -o setup.sh -sL https://deb.nodesource.com/setup_14.x
