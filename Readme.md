@@ -7,16 +7,27 @@ References:
 1. https://software.intel.com/content/www/us/en/develop/articles/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html
 2. https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Contributors/NonAccMachineSGXLinuxGettingStarted.md
 
+
 ## I. Setting up Intel Provisioning Certificate Caching Service (PCCS)
 
 ### Subscribe to the Intel PCS
-Please refer to the section “Subscribe to the Intel PCS” in *Reference 1*.
+Head to [this link](https://api.portal.trustedservices.intel.com/provisioning-certification) to subscribe to the Intel PCS and get an API key.
+This API key will be required when setting up the Intel PCCS.
+
+> NOTE: You must register an Intel Developper Zone (IDZ) account to get this API key!
+
 
 ### Setup the Intel PCCS
 Run the following script to set up the Intel PCCS.
-Also refer to the section “Set up the Intel PCCS” in *Reference 1* on explanations of the configurations.
 
 `$ ./setup_pccs_ubuntu_20.04.sh`
+
+When prompted, select a proper choice or input a proper value.
+![Important Inputs](pccs_prompt.png)
+
+Please refer to the section “Set up the Intel PCCS” in [Reference 1](https://software.intel.com/content/www/us/en/develop/articles/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html) on explanations of the configurations.
+
+> NOTE For now, we use a self-signed certificate. Later on, we can re-configure PCCS to use a properly signed certificate by an authority.
 
 
 ### Patch the Installed PCCS package to support Open Enclave SDK
